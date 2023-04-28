@@ -1,0 +1,28 @@
+table:
+  name: Attraction
+  schema: dbo
+object_relationships:
+  - name: Location
+    using:
+      foreign_key_constraint_on: LocationId
+  - name: Type
+    using:
+      foreign_key_constraint_on: TypeId
+  - name: User
+    using:
+      foreign_key_constraint_on: UserId
+array_relationships:
+  - name: AttractionFeedbacks
+    using:
+      foreign_key_constraint_on:
+        column: AttractionId
+        table:
+          name: AttractionFeedback
+          schema: dbo
+  - name: AttractionImages
+    using:
+      foreign_key_constraint_on:
+        column: AttractionId
+        table:
+          name: AttractionImage
+          schema: dbo

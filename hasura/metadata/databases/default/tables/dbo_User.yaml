@@ -1,0 +1,71 @@
+table:
+  name: User
+  schema: dbo
+object_relationships:
+  - name: GovernmentHierarchy
+    using:
+      foreign_key_constraint_on: GovernmentHierarchyId
+array_relationships:
+  - name: Accommodations
+    using:
+      foreign_key_constraint_on:
+        column: UserId
+        table:
+          name: Accommodations
+          schema: dbo
+  - name: Attractions
+    using:
+      foreign_key_constraint_on:
+        column: UserId
+        table:
+          name: Attraction
+          schema: dbo
+  - name: DestinationCenterResources
+    using:
+      foreign_key_constraint_on:
+        column: UserId
+        table:
+          name: DestinationCenterResource
+          schema: dbo
+  - name: DestinationCenters
+    using:
+      foreign_key_constraint_on:
+        column: UserId
+        table:
+          name: DestinationCenter
+          schema: dbo
+  - name: Galleries
+    using:
+      foreign_key_constraint_on:
+        column: UserId
+        table:
+          name: Gallery
+          schema: dbo
+  - name: Phonebooks
+    using:
+      foreign_key_constraint_on:
+        column: UserId
+        table:
+          name: Phonebook
+          schema: dbo
+  - name: Services
+    using:
+      foreign_key_constraint_on:
+        column: UserId
+        table:
+          name: Service
+          schema: dbo
+  - name: TouristInformations
+    using:
+      foreign_key_constraint_on:
+        column: UserId
+        table:
+          name: TouristInformation
+          schema: dbo
+  - name: UserRoles
+    using:
+      foreign_key_constraint_on:
+        column: UserId
+        table:
+          name: UserRole
+          schema: dbo

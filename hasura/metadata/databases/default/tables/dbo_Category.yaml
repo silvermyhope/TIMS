@@ -1,0 +1,18 @@
+table:
+  name: Category
+  schema: dbo
+array_relationships:
+  - name: Sub_Categories
+    using:
+      foreign_key_constraint_on:
+        column: CategoryId
+        table:
+          name: Sub_Category
+          schema: dbo
+  - name: Types
+    using:
+      foreign_key_constraint_on:
+        column: CategoryId
+        table:
+          name: Type
+          schema: dbo

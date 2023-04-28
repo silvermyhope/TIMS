@@ -1,0 +1,10 @@
+table:
+  name: Room
+  schema: dbo
+object_relationships:
+  - name: Accommodation
+    using:
+      foreign_key_constraint_on: AccommodationId
+  - name: RoomType
+    using:
+      foreign_key_constraint_on: RoomTypeId

@@ -1,0 +1,10 @@
+table:
+  name: MenuRole
+  schema: dbo
+object_relationships:
+  - name: Menu
+    using:
+      foreign_key_constraint_on: MenuId
+  - name: Role
+    using:
+      foreign_key_constraint_on: RoleId

@@ -1,0 +1,11 @@
+table:
+  name: RoomType
+  schema: dbo
+array_relationships:
+  - name: Rooms
+    using:
+      foreign_key_constraint_on:
+        column: RoomTypeId
+        table:
+          name: Room
+          schema: dbo

@@ -1,0 +1,10 @@
+table:
+  name: UserRole
+  schema: dbo
+object_relationships:
+  - name: Role
+    using:
+      foreign_key_constraint_on: RoleId
+  - name: User
+    using:
+      foreign_key_constraint_on: UserId

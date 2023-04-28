@@ -1,0 +1,18 @@
+table:
+  name: Role
+  schema: dbo
+array_relationships:
+  - name: MenuRoles
+    using:
+      foreign_key_constraint_on:
+        column: RoleId
+        table:
+          name: MenuRole
+          schema: dbo
+  - name: UserRoles
+    using:
+      foreign_key_constraint_on:
+        column: RoleId
+        table:
+          name: UserRole
+          schema: dbo

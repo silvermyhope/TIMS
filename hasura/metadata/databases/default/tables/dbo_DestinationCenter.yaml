@@ -1,0 +1,28 @@
+table:
+  name: DestinationCenter
+  schema: dbo
+object_relationships:
+  - name: Location
+    using:
+      foreign_key_constraint_on: LocationId
+  - name: Type
+    using:
+      foreign_key_constraint_on: TypeId
+  - name: User
+    using:
+      foreign_key_constraint_on: UserId
+array_relationships:
+  - name: DestinationCenterImages
+    using:
+      foreign_key_constraint_on:
+        column: DestinationCenterId
+        table:
+          name: DestinationCenterImage
+          schema: dbo
+  - name: UniqueFeatures
+    using:
+      foreign_key_constraint_on:
+        column: DestinationCenterId
+        table:
+          name: UniqueFeature
+          schema: dbo

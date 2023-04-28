@@ -1,0 +1,42 @@
+table:
+  name: Accommodations
+  schema: dbo
+object_relationships:
+  - name: Location
+    using:
+      foreign_key_constraint_on: LocationId
+  - name: Type
+    using:
+      foreign_key_constraint_on: TypeId
+  - name: User
+    using:
+      foreign_key_constraint_on: UserId
+array_relationships:
+  - name: AccommodationImages
+    using:
+      foreign_key_constraint_on:
+        column: AccommodationId
+        table:
+          name: AccommodationImages
+          schema: dbo
+  - name: FoodMenus
+    using:
+      foreign_key_constraint_on:
+        column: AccommodationId
+        table:
+          name: FoodMenu
+          schema: dbo
+  - name: Recipes
+    using:
+      foreign_key_constraint_on:
+        column: AccommodationId
+        table:
+          name: Recipe
+          schema: dbo
+  - name: Rooms
+    using:
+      foreign_key_constraint_on:
+        column: AccommodationId
+        table:
+          name: Room
+          schema: dbo

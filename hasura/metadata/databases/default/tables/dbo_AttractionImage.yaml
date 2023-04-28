@@ -1,0 +1,7 @@
+table:
+  name: AttractionImage
+  schema: dbo
+object_relationships:
+  - name: Attraction
+    using:
+      foreign_key_constraint_on: AttractionId

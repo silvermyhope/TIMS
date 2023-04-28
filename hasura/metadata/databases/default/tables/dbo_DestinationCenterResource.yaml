@@ -1,0 +1,18 @@
+table:
+  name: DestinationCenterResource
+  schema: dbo
+object_relationships:
+  - name: DestinationCenterResourceCategory
+    using:
+      foreign_key_constraint_on: DestinationCenterResourceCategoryId
+  - name: User
+    using:
+      foreign_key_constraint_on: UserId
+array_relationships:
+  - name: UniqueFeatures
+    using:
+      foreign_key_constraint_on:
+        column: DestinationCenterResourceId
+        table:
+          name: UniqueFeature
+          schema: dbo

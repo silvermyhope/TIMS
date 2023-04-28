@@ -1,0 +1,32 @@
+table:
+  name: Location
+  schema: dbo
+array_relationships:
+  - name: Accommodations
+    using:
+      foreign_key_constraint_on:
+        column: LocationId
+        table:
+          name: Accommodations
+          schema: dbo
+  - name: Attractions
+    using:
+      foreign_key_constraint_on:
+        column: LocationId
+        table:
+          name: Attraction
+          schema: dbo
+  - name: DestinationCenters
+    using:
+      foreign_key_constraint_on:
+        column: LocationId
+        table:
+          name: DestinationCenter
+          schema: dbo
+  - name: Services
+    using:
+      foreign_key_constraint_on:
+        column: LocationId
+        table:
+          name: Service
+          schema: dbo

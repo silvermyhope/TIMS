@@ -1,0 +1,13 @@
+table:
+  name: Service
+  schema: dbo
+object_relationships:
+  - name: Location
+    using:
+      foreign_key_constraint_on: LocationId
+  - name: Type
+    using:
+      foreign_key_constraint_on: TypeId
+  - name: User
+    using:
+      foreign_key_constraint_on: UserId
