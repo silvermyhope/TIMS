@@ -1,1 +1,102 @@
-[]
+- name: allowed-queries
+  definition:
+    queries:
+      - name: GetCategory
+        query: |
+          query MyQuery {
+            Category {
+              CatId
+              Name
+              CreatedDate
+              IsDelete
+            }
+          }
+      - name: GetHotel
+        query: |
+          query MyQuery {
+            Accommodations(where: {TypeId:{_eq:12}}) {
+              Id
+              Name
+              Description
+              Image
+              Star
+              CreateDate
+              Location {
+                LoName
+                Latitude
+                Longitude
+              }
+            }
+          }
+      - name: GetHotelDetail
+        query: |
+          query MyQuery {
+            Accommodations(where: {Id:{_eq:1}}) {
+              Id
+              Name
+              Description
+              Image
+              Star
+              CreateDate
+              Location {
+                LoName
+                Latitude
+                Longitude
+              }
+            }
+          }
+      - name: GetUserInfo
+        query: |
+          query MyQuery {
+            User(where: {Id:{_eq:1}}) {
+              Id
+              FirstName
+              LastName
+              FullName
+              PhoneNumber
+              LastLogin
+              Email
+              CreateDate
+              GovernmentHierarchyId
+              Gender
+              Password
+            }
+          }
+      - name: GetFavorites
+        query: |
+          query MyQuery {
+            Favorites(where: {UserId:{_eq:1}}) {
+              Id
+              AccommodationId
+              IsDelete
+              CreatedDate
+            }
+          }
+      - name: GetReview
+        query: |
+          query MyQuery {
+            Reviews(where: {AccommodationId:{_eq:"1"}}) {
+              Id
+              UserId
+              AccommodationId
+              Rating
+              Title
+              Comment
+              CreatedDate
+              Reviews_Accommodation {
+                Name
+                Star
+                TypeId
+                Description
+                Image
+                Location {
+                  LoName
+                  Latitude
+                  Longitude
+                }
+                Type {
+                  Name
+                }
+              }
+            }
+          }

@@ -1,0 +1,10 @@
+table:
+  name: Booking
+  schema: dbo
+object_relationships:
+  - name: Accommodation
+    using:
+      foreign_key_constraint_on: AccommodationId
+  - name: User
+    using:
+      foreign_key_constraint_on: UserId

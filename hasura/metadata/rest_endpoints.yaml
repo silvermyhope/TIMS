@@ -1,1 +1,54 @@
-[]
+- comment: GetCategory
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: GetCategory
+  methods:
+    - GET
+  name: GetCategory
+  url: GetCategory
+- comment: get favorites of a user
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: GetFavorites
+  methods:
+    - GET
+  name: GetFavorites
+  url: GetFavorites
+- comment: Get accomomdation her type hotel
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: GetHotel
+  methods:
+    - GET
+  name: GetHotel
+  url: GetHotel
+- comment: get from accommodation where id
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: GetHotelDetail
+  methods:
+    - GET
+  name: GetHotelDetail
+  url: GetHotelDetail
+- comment: review with Detail
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: GetReview
+  methods:
+    - GET
+  name: GetReview
+  url: GetReview
+- comment: Get user detail
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: GetUserInfo
+  methods:
+    - GET
+  name: GetUserInfo
+  url: GetUserInfo

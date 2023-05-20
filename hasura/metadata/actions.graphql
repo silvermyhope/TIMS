@@ -1,0 +1,374 @@
+type Mutation {
+  AddReview(
+    objects: ReviewInput!
+  ): ReviewOutput
+}
+
+type Mutation {
+  AddToFav(
+    objects: FavoritesInput!
+  ): FavoritesOutput
+}
+
+type Mutation {
+  CancelBooking(
+    arg1: CancelationInput!
+  ): CancelationOutput
+}
+
+type Mutation {
+  CreateCategory(
+    objects: CategoryInput!
+  ): CategoryOutput
+}
+
+type Query {
+  GetBookingById(
+    input: GetBookingByIdInput!
+  ): GetBookingByIdOutput
+}
+
+type Query {
+  GetFavById(
+    input: GetFavByIdInput!
+  ): GetFavByIdOutput
+}
+
+type Query {
+  GetReviewById(
+    input: GetReviewByIdInput!
+  ): GetReviewByIdOutput
+}
+
+type Query {
+  GetUserById(
+    input: GetUserByIdInput!
+  ): GetUserByIdOutput
+}
+
+type Mutation {
+  Login(
+    objects: LoginInput!
+  ): LoginOutput
+}
+
+type Mutation {
+  MakeBooking(
+    objects: BookingInput!
+  ): BookingOutput
+}
+
+type Mutation {
+  RegisterUser(
+    objects: RegisterInput!
+  ): RegisterOutput
+}
+
+type Mutation {
+  RemoveFromFav(
+    objects: FavRemoveInput!
+  ): FavRemoveOutput
+}
+
+type Mutation {
+  RemoveReview(
+    objects: RemoveReviewInput!
+  ): RemoveReviewOutput
+}
+
+type Mutation {
+  UpdateUser(
+    objects: UpdateUserInput!
+  ): UpdateUserOutput
+}
+
+input GetUserByIdInput {
+  id: Int!
+}
+
+input CategoryInput {
+  IsDelete: Boolean!
+  Name: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input RegisterInput {
+  access_token: String!
+  FirstName: String!
+  LastName: String!
+  Email: String!
+  Password: String!
+  confirm_password: String!
+  GovernmentHierarchyId: Int!
+  PhoneNumber: String!
+  Gender: String!
+  ForIdenttiyId: String!
+}
+
+input UpdateUserInput {
+  access_token: String!
+  FirstName: String!
+  LastName: String!
+  GovernmentHierarchyId: Int!
+  PhoneNumber: String!
+  Gender: String!
+}
+
+input FavoritesInput {
+  access_token: String!
+  UserId: Int!
+  Accommodation: Int!
+}
+
+input FavRemoveInput {
+  access_token: String!
+  Id: Int!
+}
+
+input GetFavByIdInput {
+  UserId: Int!
+  accessToken: String!
+}
+
+input BookingInput {
+  access_token: String!
+  AccommodationId: Int!
+  UserId: Int!
+  Status: Boolean!
+  IsDelete: Boolean!
+  Price: String!
+}
+
+input CancelationInput {
+  access_token: String!
+  Id: Int!
+}
+
+input GetBookingByIdInput {
+  UserId: Int!
+  accessToken: String!
+}
+
+input ReviewInput {
+  access_token: String!
+  UserId: Int!
+  AccommodationId: Int!
+  Rating: Int!
+  Title: String!
+  Comment: String!
+}
+
+input GetReviewByIdInput {
+  AccommodationId: Int!
+  accessToken: String!
+}
+
+input RemoveReviewInput {
+  access_token: String!
+  Id: Int!
+  UserId: Int!
+}
+
+type GetUserByIdOutput {
+  Id: Int
+  FirstName: String
+  LastName: String
+  FullName: String
+  PhoneNumber: String
+  LastLogin: String
+  Email: String
+  CreateDate: String
+  GovernmentHierarchyId: Int
+  Gender: String
+  Password: String
+}
+
+type CategoryOutput {
+  CatId: ID!
+  Name: String!
+  IsDelete: Boolean!
+  CreatedDate: String!
+}
+
+type LoginOutput {
+  accessToken: String!
+  userId: Int!
+  RoleId: Int!
+  expiresIn: Int!
+}
+
+type RegisterOutput {
+  access_token: String!
+  Id: Int!
+  FirstName: String!
+  LastName: String!
+  FullName: String!
+  Email: String!
+  Password: String!
+  GovernmentHierarchyId: Int!
+  PhoneNumber: String!
+  Gender: String!
+  CreateDate: String!
+  IsDelete: Boolean!
+  ForIdenttiyId: String!
+  IsEmailVerified: Boolean!
+  ActivationCode: String!
+}
+
+type UpdateUserOutput {
+  access_token: String!
+  FirstName: String!
+  LastName: String!
+  FullName: String!
+  GovernmentHierarchyId: Int!
+  PhoneNumber: String!
+  Gender: String!
+}
+
+type FavoritesOutput {
+  access_token: String!
+  Id: Int!
+  UserId: Int!
+  Accommodation: Int!
+  CreateDate: String!
+  IsDelete: Boolean!
+}
+
+type FavRemoveOutput {
+  access_token: String!
+  IsDelete: Boolean!
+}
+
+type GetFavByIdOutput {
+  accessToken: String!
+  Id: Int
+  UserId: String
+  AccommodationId: Int!
+  IsDelete: Int!
+  CreateDate: String
+  Name: String
+  Star: String
+  TypeId: String
+  Description: String
+  Image: String
+  Accommodation: AccommodationOutput
+}
+
+type AccommodationOutput {
+  Name: String
+  Star: String
+  TypeId: String
+  Description: String
+  Image: String
+  IsDelete: Int!
+  Location: LocationOutput
+}
+
+type LocationOutput {
+  LoName: String
+  Latitude: String
+  Longitude: String
+}
+
+type BookingOutput {
+  access_token: String!
+  Id: Int!
+  AccommodationId: Int!
+  UserId: Int!
+  Status: Boolean!
+  IsDelete: Boolean!
+  Price: String!
+  CreatedDate: String!
+}
+
+type CancelationOutput {
+  access_token: String!
+  Status: Boolean!
+}
+
+type GetBookingByIdOutput {
+  accessToken: String!
+  Id: Int
+  UserId: String
+  AccommodationId: Int!
+  IsDelete: Int!
+  CreateDate: String
+  Name: String
+  Star: String
+  TypeId: String
+  Description: String
+  Image: String
+  Accommodation: AccommodationBOutput
+}
+
+type AccommodationBOutput {
+  Name: String
+  Star: String
+  TypeId: String
+  Description: String
+  Image: String
+  IsDelete: Int!
+  Location: LocationBOutput
+}
+
+type LocationBOutput {
+  LoName: String
+  Latitude: String
+  Longitude: String
+}
+
+type ReviewOutput {
+  access_token: String!
+  Id: Int!
+  UserId: Int!
+  AccommodationId: Int!
+  Rating: Int!
+  Title: String!
+  Comment: String!
+  CreateDate: String!
+  IsDelete: Boolean!
+}
+
+type GetReviewByIdOutput {
+  accessToken: String!
+  Id: Int
+  UserId: String
+  AccommodationId: Int!
+  Rating: Int!
+  Title: String!
+  Comment: String!
+  IsDelete: Int!
+  CreateDate: String
+  Name: String
+  Star: String
+  TypeId: String
+  Description: String
+  Image: String
+  Accommodation: AccommodationROutput
+}
+
+type AccommodationROutput {
+  Name: String
+  Star: String
+  TypeId: String
+  Description: String
+  Image: String
+  IsDelete: Int!
+  Location: LocationROutput
+}
+
+type LocationROutput {
+  LoName: String
+  Latitude: String
+  Longitude: String
+}
+
+type RemoveReviewOutput {
+  access_token: String!
+  IsDelete: Boolean!
+}
+

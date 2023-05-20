@@ -1,6 +1,151 @@
-actions: []
+actions:
+  - name: AddReview
+    definition:
+      kind: synchronous
+      handler: http://localhost:9695/
+      headers:
+        - name: x-hasura-access-key
+          value: myadminsecretkey
+  - name: AddToFav
+    definition:
+      kind: synchronous
+      handler: http://localhost:9695/
+      headers:
+        - name: x-hasura-access-key
+          value: myadminsecretkey
+      timeout: 299
+  - name: CancelBooking
+    definition:
+      kind: synchronous
+      handler: http://localhost:9695/
+      headers:
+        - name: x-hasura-access-key
+          value: myadminsecretkey
+      timeout: 300
+  - name: CreateCategory
+    definition:
+      kind: synchronous
+      handler: http://localhost:8080/v1/graphql
+      headers:
+        - name: x-hasura-access-key
+          value: myadminsecretkey
+      timeout: 300
+  - name: GetBookingById
+    definition:
+      kind: ""
+      handler: http://localhost:9695/
+      headers:
+        - name: x-hasura-access-key
+          value: myadminsecretkey
+      timeout: 300
+  - name: GetFavById
+    definition:
+      kind: ""
+      handler: http://localhost:9695/
+      headers:
+        - name: x-hasura-access-key
+          value: myadminsecretkey
+      timeout: 300
+  - name: GetReviewById
+    definition:
+      kind: ""
+      handler: http://localhost:9695/
+      headers:
+        - name: x-hasura-access-key
+          value: myadminsecretkey
+      timeout: 298
+  - name: GetUserById
+    definition:
+      kind: ""
+      handler: https://dummy-url.com
+      forward_client_headers: true
+      headers:
+        - name: x-hasura-access-key
+          value: myadminsecretkey
+      timeout: 300
+  - name: Login
+    definition:
+      kind: synchronous
+      handler: https://dummy-url.com
+      headers:
+        - name: x-hasura-access-key
+          value: myadminsecretkey
+      timeout: 300
+  - name: MakeBooking
+    definition:
+      kind: synchronous
+      handler: http://localhost:9695/
+      headers:
+        - name: x-hasura-access-key
+          value: myadminsecretkey
+      timeout: 298
+  - name: RegisterUser
+    definition:
+      kind: synchronous
+      handler: https://dummy-url.com
+      headers:
+        - name: x-hasura-access-key
+          value: myadminsecretkey
+      timeout: 294
+  - name: RemoveFromFav
+    definition:
+      kind: synchronous
+      handler: http://localhost:9695/
+      headers:
+        - name: x-hasura-access-key
+          value: myadminsecretkey
+      timeout: 300
+  - name: RemoveReview
+    definition:
+      kind: synchronous
+      handler: http://localhost:9695/
+      headers:
+        - name: x-hasura-access-key
+          value: myadminsecretkey
+  - name: UpdateUser
+    definition:
+      kind: synchronous
+      handler: https://dummy-url.com
+      headers:
+        - name: x-hasura-access-key
+          value: myadminsecretkey
+      timeout: 300
 custom_types:
   enums: []
-  input_objects: []
-  objects: []
+  input_objects:
+    - name: GetUserByIdInput
+    - name: CategoryInput
+    - name: LoginInput
+    - name: RegisterInput
+    - name: UpdateUserInput
+    - name: FavoritesInput
+    - name: FavRemoveInput
+    - name: GetFavByIdInput
+    - name: BookingInput
+    - name: CancelationInput
+    - name: GetBookingByIdInput
+    - name: ReviewInput
+    - name: GetReviewByIdInput
+    - name: RemoveReviewInput
+  objects:
+    - name: GetUserByIdOutput
+    - name: CategoryOutput
+    - name: LoginOutput
+    - name: RegisterOutput
+    - name: UpdateUserOutput
+    - name: FavoritesOutput
+    - name: FavRemoveOutput
+    - name: GetFavByIdOutput
+    - name: AccommodationOutput
+    - name: LocationOutput
+    - name: BookingOutput
+    - name: CancelationOutput
+    - name: GetBookingByIdOutput
+    - name: AccommodationBOutput
+    - name: LocationBOutput
+    - name: ReviewOutput
+    - name: GetReviewByIdOutput
+    - name: AccommodationROutput
+    - name: LocationROutput
+    - name: RemoveReviewOutput
   scalars: []

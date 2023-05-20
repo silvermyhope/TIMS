@@ -20,6 +20,13 @@ array_relationships:
         table:
           name: Attraction
           schema: dbo
+  - name: Bookings
+    using:
+      foreign_key_constraint_on:
+        column: UserId
+        table:
+          name: Booking
+          schema: dbo
   - name: DestinationCenterResources
     using:
       foreign_key_constraint_on:
@@ -33,6 +40,13 @@ array_relationships:
         column: UserId
         table:
           name: DestinationCenter
+          schema: dbo
+  - name: Favorites
+    using:
+      foreign_key_constraint_on:
+        column: UserId
+        table:
+          name: Favorites
           schema: dbo
   - name: Galleries
     using:
@@ -68,4 +82,11 @@ array_relationships:
         column: UserId
         table:
           name: UserRole
+          schema: dbo
+  - name: User_Reviews
+    using:
+      foreign_key_constraint_on:
+        column: UserId
+        table:
+          name: Reviews
           schema: dbo
