@@ -88,6 +88,33 @@
     - POST
   name: Add_Favorites
   url: addFavorites
+- comment: get all attraction
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: getAttraction
+  methods:
+    - GET
+  name: getAttraction
+  url: getAttraction
+- comment: get hotels review
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: getHotelReview
+  methods:
+    - GET
+  name: getHotelReview
+  url: getHotelReview
+- comment: get list of hotels
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: gethotels
+  methods:
+    - GET
+  name: gethotels
+  url: gethotels
 - comment: user login
   definition:
     query:

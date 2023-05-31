@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
+
+
 
 
 class HasuraAuthController extends Controller
@@ -11,48 +15,53 @@ class HasuraAuthController extends Controller
 
     public function handleRequest(Request $request)
     {
-        // Get request input
-        $email = $request->input('login_inp.email');
-        $password = $request->input('login_inp.password');
-        $getUserByEmailUrl = 'localhost:8000/api/rest/GetUserByEmail';
+
+        $data = $request->input();
+
+        // Access specific properties of the object
+        $input = $request->input('input');
+        $objects = $input['objects'];
+        $email = $objects['email'];
+
         $client = new Client();
-    
-        $getUserByEmailData = ['email' => $email];
+        $url = 'http://localhost:8080/api/rest/GetUserByEmail';
 
+        $params = [
+            'email' => $email,
+        ];
+
+        $options = [
+            'method' => 'GET',
+            'headers' => [
+                'Accept' => 'application/json',
+                'x-hasura-admin-secret' => 'mysecretkey',
+            ],
+            'query' => $params,
+        ];
+
+        //$response = $client->request('GET', $url, $options);
+        $response = Http::get($url, $params);
+
+        // Get the response body as a string
+        //$responseBody = $response->getBody()->getContents();
+        $responseData = $response->json();
+
+        // Decode the JSON response body into an array
+       // $responseData = json_decode($responseBody, true);
+
+        // Access the required data from the response
+        $accessToken = $responseData['accessToken'];
+        $roleId = $responseData['RoleId'];
+        $userId = $responseData['userId'];
+
+        // Return a response
         return response()->json([
-                        'accessToken' => '<value>',
-                        'userId' => 1,
-                        'RoleId' => 1,
-                        'expiresIn' => '<value>' // Modify this as per your response data
-                    ]);
+            'message' => 'Data received successfully',
+            'accessToken' => $accessToken,
+            'RoleId' => $roleId,
+            'userId' => $userId,
+            'expiresIn' => 1
+        ]);
 
-        // $options = [
-        //     'method' => 'GET',
-        //     'headers' => [
-        //         'Accept' => 'application/json',
-        //         'x-hasura-admin-secret' => 'mysecretkey',
-        //     ],
-        // ];
-
-        // $response = Http::withHeaders([
-        //     'Content-Type' => 'application/json',
-        //     'x-hasura-admin-secret' => 'mysecretkey',
-        // ])->get($getUserByEmailUrl, $getUserByEmailData);
-
-        // $data = $response->json(); // Get the response as an associative array
-        // // Process the data as needed
-        // $UserEmail = $data['email'];
-        // $UserId = $data['id'];
-
-
-        // if ($email==$UserEmail){
-        //     return response()->json([
-        //             'accessToken' => '<value>',
-        //             'userId' => $UserId,
-        //             'RoleId' => 1,
-        //             'expiresIn' => '<value>' // Modify this as per your response data
-        //         ]);
-        // }
-        
     }
 }

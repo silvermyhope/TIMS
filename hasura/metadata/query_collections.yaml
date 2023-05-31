@@ -147,3 +147,64 @@
               Id
             }
           }
+      - name: getAttraction
+        query: |
+          query MyQuery {
+            Attraction {
+              Id
+              Name
+              Description
+              Image
+              Type {
+                Name
+              }
+              Location {
+                LoName
+                Latitude
+                Longitude
+              }
+              User {
+                FullName
+                Id
+              }
+            }
+          }
+      - name: gethotels
+        query: |
+          query getHotels ($type: String!) {
+            Accommodations(where: {Type:{Name:{_eq:$type}}}) {
+              Id
+              Name
+              Description
+              PhoneNumber
+              Image
+              Location {
+                LoName
+                Latitude
+                Longitude
+              }
+              Type {
+                Id
+                Name
+              }
+              User {
+                Id
+                FullName
+              }
+              IsDelete
+              Star
+            }
+          }
+      - name: getHotelReview
+        query: |
+          query listfeedback ($id: Int!) {
+            Reviews(where: {AccommodationId:{_eq:$id}}) {
+              Id
+              Reviews_Accommodation {
+                Name
+              }
+              Title
+              Comment
+              Rating
+            }
+          }
