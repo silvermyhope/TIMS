@@ -106,6 +106,15 @@
     - GET
   name: getHotelReview
   url: getHotelReview
+- comment: ""
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: getUserDataByEmail
+  methods:
+    - GET
+  name: getUserDataByEmail
+  url: getUserDataByEmail
 - comment: get list of hotels
   definition:
     query:

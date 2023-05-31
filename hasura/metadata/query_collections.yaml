@@ -107,15 +107,6 @@
               CatId
             }
           }
-      - name: Login
-        query: |
-          mutation login ($login_inp: LoginInput!) {
-            Login(objects: $login_inp) {
-              accessToken
-              RoleId
-              userId
-            }
-          }
       - name: GetUserByEmail
         query: |
           query get_user_by_email ($email: String!) {
@@ -206,5 +197,34 @@
               Title
               Comment
               Rating
+            }
+          }
+      - name: Login
+        query: |
+          mutation login ($login_inp: LoginInput!) {
+            Login(objects: $login_inp) {
+              RoleId
+              userId
+            }
+          }
+      - name: getUserDataByEmail
+        query: |
+          query get_user_by_email ($email: String!) {
+            User(where: {Email:{_eq:$email}}) {
+              Id
+              FullName
+              FirstName
+              LastName
+              IsEmailVerified
+              IsDelete
+              Password
+              PhoneNumber
+              GovernmentHierarchyId
+              Gender
+              Email
+              UserRoles {
+                RoleId
+                UserId
+              }
             }
           }

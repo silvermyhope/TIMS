@@ -39,7 +39,7 @@ services:
       HASURA_GRAPHQL_DEV_MODE: "true"
       HASURA_GRAPHQL_AUTH_HOOK: #http://localhost:8000/api/auth/hasura
       HASURA_GRAPHQL_AUTH_HOOK_MODE: POST
-      HASURA_GRAPHQL_JWT_SECRET: "{\"type\": \"HS256\", \"key\": \"FwBoFsLQCEtUwlYLKaM3KxSs2imizhR2PTivHxABMKwXsAczRg8mkLFmuRJVgj4d\"}"
+      #HASURA_GRAPHQL_JWT_SECRET: "{\"type\": \"HS256\", \"key\": \"FwBoFsLQCEtUwlYLKaM3KxSs2imizhR2PTivHxABMKwXsAczRg8mkLFmuRJVgj4d\"}"
     #   HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
       ## uncomment next line to run console offline (i.e load console assets from server instead of CDN)
       # HASURA_GRAPHQL_CONSOLE_ASSETS_DIR: /srv/console-assets

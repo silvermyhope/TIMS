@@ -195,10 +195,8 @@ type CategoryOutput {
 }
 
 type LoginOutput {
-  accessToken: String!
   userId: Int!
   RoleId: Int!
-  expiresIn: Int!
 }
 
 type RegisterOutput {

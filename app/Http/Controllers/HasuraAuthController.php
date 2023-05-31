@@ -24,40 +24,30 @@ class HasuraAuthController extends Controller
         $email = $objects['email'];
 
         $client = new Client();
-        $url = 'http://localhost:8080/api/rest/GetUserByEmail';
+        $url = 'http://graphql-engine:8080/api/rest/getUserDataByEmail';
 
         $params = [
             'email' => $email,
         ];
 
-        $options = [
-            'method' => 'GET',
-            'headers' => [
-                'Accept' => 'application/json',
-                'x-hasura-admin-secret' => 'mysecretkey',
-            ],
-            'query' => $params,
-        ];
+        $response = Http::withHeaders([
+            'Accept' => 'application/json',
+            'x-hasura-admin-secret' => 'mysecretkey',
+        ])->get($url, $params);
 
-        //$response = $client->request('GET', $url, $options);
-        $response = Http::get($url, $params);
 
-        // Get the response body as a string
-        //$responseBody = $response->getBody()->getContents();
         $responseData = $response->json();
 
-        // Decode the JSON response body into an array
-       // $responseData = json_decode($responseBody, true);
-
-        // Access the required data from the response
-        $accessToken = $responseData['accessToken'];
-        $roleId = $responseData['RoleId'];
-        $userId = $responseData['userId'];
+        // Access specific values from the response
+        //$accessToken = $responseData['accessToken'];
+        // Access the ID and RoleId fields
+        $userId = $responseData['User'][0]['Id'];
+        $roleId = $responseData['User'][0]['UserRoles'][0]['RoleId'];
 
         // Return a response
         return response()->json([
             'message' => 'Data received successfully',
-            'accessToken' => $accessToken,
+            //'accessToken' => $accessToken,
             'RoleId' => $roleId,
             'userId' => $userId,
             'expiresIn' => 1
