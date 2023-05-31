@@ -66,11 +66,8 @@ actions:
   - name: Login
     definition:
       kind: synchronous
-      handler: https://dummy-url.com
-      headers:
-        - name: x-hasura-access-key
-          value: myadminsecretkey
-      timeout: 300
+      handler: http://host.docker.internal:8000/api/login
+      timeout: 299
   - name: MakeBooking
     definition:
       kind: synchronous

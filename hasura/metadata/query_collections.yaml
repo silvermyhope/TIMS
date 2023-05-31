@@ -100,3 +100,50 @@
               }
             }
           }
+      - name: Add_Category
+        query: |
+          mutation add_category ($cat_input: Category_insert_input!) {
+            insert_Category_one(object: $cat_input) {
+              CatId
+            }
+          }
+      - name: Login
+        query: |
+          mutation login ($login_inp: LoginInput!) {
+            Login(objects: $login_inp) {
+              accessToken
+              RoleId
+              userId
+            }
+          }
+      - name: GetUserByEmail
+        query: |
+          query get_user_by_email ($email: String!) {
+            User(where: {Email:{_eq:$email}}) {
+              Id
+              FullName
+              FirstName
+              LastName
+              IsEmailVerified
+              IsDelete
+              Password
+              PhoneNumber
+              GovernmentHierarchyId
+              Gender
+              Email
+            }
+          }
+      - name: Add_Favorites
+        query: |
+          mutation add_favorites ($fav_input: Favorites_insert_input!) {
+            insert_Favorites_one(object: $fav_input) {
+              Id
+            }
+          }
+      - name: Add_Review
+        query: |
+          mutation add_review ($rev_input: Reviews_insert_input!) {
+            insert_Reviews_one(object: $rev_input) {
+              Id
+            }
+          }

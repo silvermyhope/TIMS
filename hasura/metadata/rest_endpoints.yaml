@@ -1,3 +1,21 @@
+- comment: post Review
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: Add_Review
+  methods:
+    - POST
+  name: Add_Review
+  url: AddReview
+- comment: add
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: Add_Category
+  methods:
+    - POST
+  name: Add_Category
+  url: Add_Category
 - comment: GetCategory
   definition:
     query:
@@ -43,6 +61,15 @@
     - GET
   name: GetReview
   url: GetReview
+- comment: get user  by email
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: GetUserByEmail
+  methods:
+    - GET
+  name: GetUserByEmail
+  url: GetUserByEmail
 - comment: Get user detail
   definition:
     query:
@@ -52,3 +79,21 @@
     - GET
   name: GetUserInfo
   url: GetUserInfo
+- comment: posting favorites
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: Add_Favorites
+  methods:
+    - POST
+  name: Add_Favorites
+  url: addFavorites
+- comment: user login
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: Login
+  methods:
+    - POST
+  name: Login
+  url: login
